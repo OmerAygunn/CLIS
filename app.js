@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import conn from "./db.js";
+import pageRoute from "./routes/pageRoute.js"
 
 dotenv.config();
 
@@ -16,6 +17,9 @@ app.set('view engine','ejs')
 
 //static files middleware
 app.use(express.static('public'))
+
+//route
+app.use("/", pageRoute);
 
 
 app.get('/',(req,res)=>{
